@@ -14,7 +14,7 @@
          (1 font-lock-keyword-face)
          (3 font-lock-constant-face))
         ;; Match commands followed by a label `@section label_token`
-        (,(concat "\\(@\\(addtogroup\\|example\\|image\\|section\\|subsection\\)\\)"
+        (,(concat "\\(@\\(addtogroup\\|image\\|section\\|subsection\\)\\)"
                   ;; One or more whitespaces
                   "[[:space:]]+"
                   ;; Match label token
