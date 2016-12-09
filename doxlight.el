@@ -8,13 +8,13 @@
 ;; create the list for font-lock.
 (setq doxlight-font-lock-keywords
       `(;; Match single commands without parameters or meta `@page`
-        (,"@\\(endhtmlonly\\|htmlonly\\|ingroup\\|internal\\|mainpage\\|name\\|note\\|page\\|paragraph\\|todo\\)[[:space:]]" . font-lock-keyword-face)
+        (,"\\([@\\\\]\\(endhtmlonly\\|htmlonly\\|ingroup\\|internal\\|mainpage\\|name\\|note\\|page\\|paragraph\\|todo\\)\\)[[:space:]]" . font-lock-keyword-face)
         ;; Match document-referencing commands followed by file name `@example foo.c`
-        (,"\\(@\\(example\\|snippet\\)\\)[[:space:]]+\\([A-Za-z0-9_-\.]+\\)*"
+        (,"\\([@\\\\]\\(example\\|snippet\\)\\)[[:space:]]+\\([A-Za-z0-9_-\.]+\\)*"
          (1 font-lock-keyword-face)
          (3 font-lock-constant-face))
         ;; Match commands followed by a label `@section label_token`
-        (,(concat "\\(@\\(addtogroup\\|image\\|section\\|subsection\\)\\)"
+        (,(concat "\\([@\\\\]\\(addtogroup\\|image\\|section\\|subsection\\)\\)"
                   ;; One or more whitespaces
                   "[[:space:]]+"
                   ;; Match label token
@@ -22,7 +22,7 @@
          (1 font-lock-keyword-face)
          (3 font-lock-function-name-face))
         ;; Match commands followed by label and string in quotation marks `@ref label_token "caption string"`
-        (,(concat "\\(@\\(\\defgroup\\|ref\\|subpage\\)\\)"
+        (,(concat "\\([@\\\\]\\(\\defgroup\\|ref\\|subpage\\)\\)"
                   ;; One or more whitespaces
                   "[[:space:]]+"
                   ;; Match label token
